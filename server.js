@@ -18,7 +18,10 @@ app.use(cors());
 // Serve static assets safely
 app.use(express.static(__dirname));
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI
+    ?.trim()
+    .replace(/^MONGODB_URI=/, '')
+    .replace(/^['"]|['"]$/g, '');
 
 if (!MONGODB_URI) {
     throw new Error('MONGODB_URI is not configured. Add it to .env before starting the server.');
@@ -166,7 +169,8 @@ app.post('/api/plants', async (req, res) => {
 // Render/Production Server Listener
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () => {
-    console.log(`EverFlora Server running at http://localhost:${PORT}/`);
+    const serverUrl = process.env.RENDER_EXTERNAL_URL || `http://localhost:${PORT}`;
+    console.log(`EverFlora Server running at ${serverUrl}/`);
 });
 
 export default app;
