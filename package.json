@@ -1,0 +1,19 @@
+{
+  "name": "plantcare-fsd-project",
+  "version": "2.0.0",
+  "description": "PlantCare+ Eco-Tracker Platform",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.19.2",
+    "mongodb": "^7.6.0",
+    "mongoose": "^9.9.4",
+    "mysql2": "^3.9.7"
+  }
+}
