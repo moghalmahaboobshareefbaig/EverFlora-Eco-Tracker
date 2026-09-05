@@ -474,6 +474,14 @@
 
             const data = await res.json();
             if(data.success) {
+                if (endpoint === '/api/register') {
+                    document.getElementById('login-email').value = body.email;
+                    document.getElementById('reg-pass').value = '';
+                    toggleAuthMode('login');
+                    alert('Registration successful. Please log in to continue.');
+                    return;
+                }
+
                 currentUser = data.user;
                 document.getElementById('auth-overlay').style.display = 'none';
                 document.getElementById('profile-name').innerText = currentUser.name;
