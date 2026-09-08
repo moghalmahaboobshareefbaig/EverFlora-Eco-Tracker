@@ -146,11 +146,11 @@ app.get('/api/auth/google/callback', async (req, res) => {
 
 app.post('/api/assistant', (req, res) => {
     const question = String(req.body?.question || '').toLowerCase().trim();
-    let answer = 'I can help with plants, care tasks, drives, analytics, profiles, and using EverFlora. Try asking "How do I add a plant?"';
+    let answer = 'I can help with plants, care tasks, drives, profiles, and using EverFlora. Try asking "How do I add a plant?"';
     if (/add|register|plant.*(new|create)/.test(question)) answer = 'Open Add Plant from the menu, enter the plant name, date, location, and height, then choose Save Plant.';
     else if (/water|care|task|healthy/.test(question)) answer = 'Check Pending Tasks on Home for the next care action. Mark a task Done after you finish it to update your impact score.';
     else if (/drive|event|join|community/.test(question)) answer = 'Open Drives to see upcoming plantation activities and choose Join drive to add yourself to a community mission.';
-    else if (/analytics|impact|carbon|co2|tree/.test(question)) answer = 'Analytics estimates 5.2 kg of CO2 offset per plant and adds impact points for plants and completed care tasks.';
+    else if (/impact|carbon|co2|tree/.test(question)) answer = 'Your impact grows when you add plants and complete care tasks.';
     else if (/profile|account|photo|contact/.test(question)) answer = 'Open My Profile for your account details and profile picture. Account and Contacts are available from the menu.';
     else if (/south|india|neem|coconut|drumstick|curry/.test(question)) answer = 'EverFlora starts with plants suited to South India, including neem, coconut, drumstick, curry leaf, banyan, and jackfruit.';
     res.json({ answer });
