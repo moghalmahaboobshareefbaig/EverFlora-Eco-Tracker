@@ -219,6 +219,63 @@
         .profile-large-avatar { width: 86px; height: 86px; border-radius: 50%; object-fit: cover; border: 3px solid #fff; }
         .profile-cover p { color: rgba(255,255,255,.78); margin-top: 5px; }
         .toast { position: fixed; right: 24px; bottom: 24px; z-index: 12000; padding: 13px 16px; color: #fff; background: var(--text-dark); border-radius: 9px; box-shadow: var(--shadow-lg); animation: toastIn .3s ease both; }
+        .google-button { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 12px; padding: 11px; border: 1px solid #d7ddd8; border-radius: 8px; background: #fff; color: #26352b; cursor: pointer; font-weight: 700; }
+        .google-mark { width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%; color: #4285f4; font-weight: 800; font-size: 18px; }
+        .assistant-launcher { position: fixed; right: 24px; bottom: 24px; z-index: 4000; width: 58px; height: 58px; border: 0; border-radius: 50%; background: var(--primary); color: #fff; box-shadow: var(--shadow-lg); cursor: pointer; font-size: 24px; animation: plantFloat 4s ease-in-out infinite; }
+        .assistant-panel { position: fixed; right: 24px; bottom: 94px; z-index: 3999; width: min(360px, calc(100vw - 32px)); padding: 16px; border: 1px solid var(--border-color); border-radius: 16px; background: var(--card-bg); box-shadow: var(--shadow-lg); display: none; }
+        .assistant-panel.open { display: block; animation: toastIn .25s ease both; }
+        .assistant-messages { max-height: 240px; overflow-y: auto; display: grid; gap: 9px; margin: 12px 0; }
+        .assistant-message { padding: 9px 11px; border-radius: 10px; background: var(--primary-light); color: var(--text-dark); font-size: 13px; line-height: 1.45; }
+        .assistant-message.user { background: var(--primary); color: #fff; justify-self: end; }
+        .assistant-form { display: flex; gap: 8px; }
+        .assistant-form input { min-width: 0; flex: 1; padding: 10px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-app); color: var(--text-dark); }
+        .assistant-form button { border: 0; border-radius: 8px; padding: 0 13px; background: var(--primary); color: #fff; cursor: pointer; }
+        .screen-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+        .search-control, .select-control { border: 1px solid var(--border-color); border-radius: 10px; padding: 11px 13px; background: var(--bg-app); color: var(--text-dark); min-width: 180px; }
+        .chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .chip { border: 1px solid var(--border-color); border-radius: 999px; padding: 7px 11px; background: var(--card-bg); color: var(--text-light); cursor: pointer; font-size: 12px; }
+        .chip.active, .chip:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .view-switcher { display: inline-flex; border: 1px solid var(--border-color); border-radius: 9px; overflow: hidden; }
+        .view-switcher button { border: 0; padding: 9px 12px; background: var(--card-bg); color: var(--text-light); cursor: pointer; }
+        .view-switcher button.active { background: var(--primary); color: #fff; }
+        .plant-list { display: grid; gap: 10px; }
+        .plant-list .plant-card { display: grid; grid-template-columns: 90px 1fr auto; gap: 14px; align-items: center; }
+        .plant-list .plant-card img { height: 78px; margin: 0; }
+        .health-badge { display: inline-block; border-radius: 999px; padding: 5px 9px; font-size: 11px; font-weight: 700; background: #dff3df; color: #27632a; }
+        .health-badge.warn { background: #fff0d6; color: #8a5813; }
+        .health-badge.low { background: #f9dfdf; color: #8a2d2d; }
+        .weather-card { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; }
+        .weather-icon { font-size: 38px; }
+        .task-toggle { width: 42px; height: 24px; border: 0; border-radius: 99px; background: var(--border-color); cursor: pointer; position: relative; }
+        .task-toggle::after { content: ''; position: absolute; width: 18px; height: 18px; top: 3px; left: 3px; border-radius: 50%; background: #fff; transition: transform .2s ease; }
+        .task-toggle.done { background: var(--leaf); }
+        .task-toggle.done::after { transform: translateX(18px); }
+        .fab { position: fixed; right: 28px; bottom: 28px; z-index: 2500; width: 58px; height: 58px; border: 0; border-radius: 50%; background: var(--secondary); color: #fff; font-size: 26px; cursor: pointer; box-shadow: var(--shadow-lg); }
+        .metric-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+        .mini-stat { padding: 14px; border-radius: 12px; background: var(--primary-light); border: 1px solid var(--border-color); }
+        .mini-stat strong { display: block; font-size: 22px; color: var(--primary); }
+        .chart-card { min-height: 190px; display: flex; align-items: end; gap: 10px; padding: 18px 18px 28px; background: linear-gradient(180deg, var(--card-bg), var(--primary-light)); border: 1px solid var(--border-color); border-radius: 12px; }
+        .chart-bar { flex: 1; min-width: 18px; height: var(--bar-height); border-radius: 8px 8px 2px 2px; background: linear-gradient(180deg, var(--leaf), var(--primary)); position: relative; }
+        .chart-bar span { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); font-size: 10px; color: var(--text-light); }
+        .progress-label { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; margin-bottom: 6px; }
+        .switch-row { display: flex; justify-content: space-between; gap: 12px; padding: 15px 0; border-bottom: 1px solid var(--border-soft); }
+        .switch { width: 44px; height: 25px; border: 0; border-radius: 99px; background: var(--border-color); position: relative; cursor: pointer; }
+        .switch.on { background: var(--leaf); }
+        .switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 19px; height: 19px; border-radius: 50%; background: #fff; transition: transform .2s ease; }
+        .switch.on::after { transform: translateX(19px); }
+        .scanner { min-height: 230px; border: 2px dashed var(--leaf); border-radius: 16px; display: grid; place-items: center; text-align: center; padding: 24px; background: radial-gradient(circle at center, var(--primary-light), var(--card-bg)); }
+        .scanner-ring { width: 110px; height: 110px; border: 3px solid var(--leaf); border-radius: 50%; display: grid; place-items: center; font-size: 40px; animation: logoPulse 2s ease-in-out infinite; }
+        .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .photo-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; }
+        .faq-item { border-bottom: 1px solid var(--border-soft); padding: 13px 0; cursor: pointer; }
+        .faq-item p { display: none; color: var(--text-light); font-size: 13px; line-height: 1.5; margin-top: 7px; }
+        .faq-item.open p { display: block; }
+        .ai-result { border-left: 4px solid var(--leaf); padding: 14px; background: var(--primary-light); border-radius: 0 10px 10px 0; }
+        .modal-backdrop { position: fixed; inset: 0; z-index: 11000; display: none; place-items: center; padding: 18px; background: rgba(10, 25, 15, .55); }
+        .modal-backdrop.open { display: grid; }
+        .modal-card { width: min(460px, 100%); padding: 22px; border-radius: 16px; background: var(--card-bg); box-shadow: var(--shadow-lg); }
+        .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
+        .secondary-btn { border: 1px solid var(--border-color); border-radius: 8px; padding: 9px 13px; background: var(--card-bg); color: var(--text-dark); cursor: pointer; }
         .quick-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
         .quick-action { display: flex; align-items: center; gap: 12px; padding: 16px; border: 1px solid var(--border-color); border-radius: 14px; background: var(--card-bg); color: var(--text-dark); cursor: pointer; text-align: left; box-shadow: var(--shadow); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
         .quick-action:hover { transform: translateY(-4px); border-color: var(--leaf); box-shadow: var(--shadow-lg); }
@@ -256,6 +313,8 @@
         @keyframes toastIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 900px) { .sidebar { width: 76px; padding: 16px 10px; } .sidebar.menu-open { width: 246px; padding: 16px 18px; } .sidebar-profile { display: none; } .nav-item { padding: 12px 8px; } .main-content { margin-left: 76px; padding: 24px; } .metrics-grid { grid-template-columns: repeat(2, 1fr); } .dashboard-layout, .section-grid { grid-template-columns: 1fr; } }
         @media (max-width: 560px) { .main-content { padding: 16px; } .header-bar { align-items: flex-start; gap: 12px; } .header-bar h1 { font-size: 22px; } .user-profile > div:not(.avatar) { display: none; } .metrics-grid, .team-grid { grid-template-columns: 1fr 1fr; gap: 10px; } .metric-card { padding: 14px; } .metric-value { font-size: 23px; } .drive-card { grid-template-columns: 48px 1fr; } .drive-card .join-btn { grid-column: 2; justify-self: start; } .quick-actions { grid-template-columns: 1fr; } }
+        @media (max-width: 560px) { .auth-card { width: calc(100% - 24px); padding: 24px 18px; max-height: calc(100vh - 24px); overflow-y: auto; } .hero-banner { min-height: 320px; padding: 22px; } .hero-plant { width: 120px; height: 150px; right: 6%; bottom: -12px; } .assistant-launcher { right: 16px; bottom: 16px; } .assistant-panel { right: 16px; bottom: 86px; } .panel { padding: 18px; } }
+        @media (max-width: 560px) { .screen-toolbar { align-items: stretch; } .search-control, .select-control { width: 100%; min-width: 0; } .metric-strip { grid-template-columns: 1fr; } .plant-list .plant-card { grid-template-columns: 64px 1fr; } .plant-list .plant-card .health-badge { grid-column: 2; justify-self: start; } .chart-card { min-height: 150px; gap: 6px; padding-left: 10px; padding-right: 10px; } .fab { right: 16px; bottom: 86px; } }
     </style>
 </head>
 <body>
@@ -303,6 +362,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn-submit">Create Account</button>
+                <button type="button" class="google-button" onclick="continueWithGoogle()"><span class="google-mark">G</span> Continue with Google</button>
             </form>
         </div>
     </div>
@@ -316,8 +376,11 @@
             <li class="nav-item" title="My plants" onclick="switchView('my-plants', this)">🌿 <span>My Plants</span></li>
             <li class="nav-item" title="Add a plant" onclick="switchView('add-plant', this)">＋ <span>Add Plant</span></li>
             <li class="nav-item" title="Community drives" onclick="switchView('community', this)">👥 <span>Drives</span></li>
-            <li class="nav-item" title="Greenhouse analytics" onclick="jumpToSection('analytics')">◒ <span>Analytics</span></li>
-            <li class="nav-item" title="Green team" onclick="jumpToSection('team')">✦ <span>Green Team</span></li>
+            <li class="nav-item" title="Account settings" onclick="switchView('account', this)">⚙ <span>Account</span></li>
+            <li class="nav-item" title="About EverFlora" onclick="switchView('about', this)">ⓘ <span>About</span></li>
+            <li class="nav-item" title="Green team" onclick="switchView('team', this)">✦ <span>Green Team</span></li>
+            <li class="nav-item" title="Contacts" onclick="switchView('contacts', this)">✉ <span>Contacts</span></li>
+            <li class="nav-item" title="EverFlora AI assistant" onclick="switchView('future-ai', this)">✦ <span>Future AI</span></li>
             <li id="profile-nav" class="nav-item" title="My profile" onclick="switchView('profile', this)" style="display:none">◉ <span>My Profile</span></li>
         </ul>
         <div class="sidebar-profile"><strong>Growing together</strong><p>Every planted tree creates a healthier tomorrow.</p></div>
@@ -374,6 +437,10 @@
                     <div class="metric-value" id="metric-co2">0 kg</div>
                 </div>
             </div>
+            <div class="section-grid">
+                <div class="panel weather-card"><div class="weather-icon">☀</div><div><div class="panel-title" style="margin-bottom:5px">Smart weather</div><strong>28° C · Bright morning</strong><p style="color:var(--text-light);font-size:13px;margin-top:5px">Humidity 68% · Light 82% · Good time to water balcony plants.</p></div></div>
+                <div class="panel"><div class="panel-title">Quick scan</div><p style="color:var(--text-light);font-size:13px;margin-bottom:12px">Identify a plant with a live research scan.</p><button class="join-btn" onclick="switchView('add-plant')">Open scanner</button></div>
+            </div>
 
             <div class="dashboard-layout">
                 <div class="panel">
@@ -388,23 +455,24 @@
                     </table>
                 </div>
             </div>
-            <div id="analytics" class="section-grid">
-                <div class="panel"><div class="panel-title">Greenhouse Analytics</div><p style="color:var(--text-light);font-size:13px">Your impact grows with every completed task and registered plant.</p><div class="progress-track"><div id="impact-progress" class="progress-fill"></div></div><div style="display:flex;justify-content:space-between;font-size:13px"><strong id="impact-score">0 impact points</strong><span id="impact-copy">Keep growing</span></div><div class="insight-list" style="margin-top:18px"><div class="insight"><span class="insight-icon">🌬️</span><div><strong>Cleaner air forecast</strong><span id="air-insight">Add plants to estimate your CO2 offset.</span></div></div><div class="insight"><span class="insight-icon">🌱</span><div><strong>Habit strength</strong><span id="habit-insight">Complete tasks to build your care streak.</span></div></div></div></div>
-                <div class="panel"><div class="panel-title">The EverFlora promise</div><p style="color:var(--text-light);line-height:1.7">We make restoration feel visible, social, and wonderfully human. Each tree is a story, each drive is a shared commitment, and each caretaker has a place in the canopy.</p><button class="join-btn" style="margin-top:18px" onclick="switchView('community')">Explore the next drive</button></div>
-            </div>
-            <div id="team" class="panel"><div class="panel-title">Meet the green team</div><div class="team-grid"><div class="team-member"><img class="team-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Aarav"><strong>Aarav Menon</strong><small>Field lead</small></div><div class="team-member"><img class="team-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Maya"><strong>Maya Rao</strong><small>Soil scientist</small></div><div class="team-member"><img class="team-avatar" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=120&q=80" alt="Isha"><strong>Isha Kapoor</strong><small>Community guide</small></div></div></div>
+            <div class="panel"><div class="panel-title">The EverFlora promise</div><p style="color:var(--text-light);line-height:1.7">We make restoration feel visible, social, and wonderfully human. Each tree is a story, each drive is a shared commitment, and each caretaker has a place in the canopy.</p><button class="join-btn" style="margin-top:18px" onclick="switchView('community')">Explore the next drive</button></div>
+            <div id="dashboard-team" class="panel"><div class="panel-title">Meet the green team</div><div class="team-grid"><div class="team-member"><img class="team-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Aarav"><strong>Aarav Menon</strong><small>Field lead</small></div><div class="team-member"><img class="team-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Maya"><strong>Maya Rao</strong><small>Soil scientist</small></div><div class="team-member"><img class="team-avatar" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=120&q=80" alt="Isha"><strong>Isha Kapoor</strong><small>Community guide</small></div></div></div>
         </div>
 
         <div id="my-plants" class="app-view">
             <div class="panel">
-                <div class="panel-title">Your Plantations</div>
+                <div class="screen-toolbar"><div><div class="panel-title" style="margin-bottom:4px">My Plants</div><p style="color:var(--text-light);font-size:13px">Your digital botanical collection.</p></div><div class="view-switcher"><button class="active" onclick="setPlantLayout('grid', this)">Grid</button><button onclick="setPlantLayout('list', this)">List</button></div></div>
+                <div class="screen-toolbar"><input id="plant-search" class="search-control" type="search" placeholder="Search plants..." oninput="filterPlants()"><div class="chip-row"><button class="chip active" onclick="filterPlantHealth('all', this)">All</button><button class="chip" onclick="filterPlantHealth('Thriving', this)">Thriving</button><button class="chip" onclick="filterPlantHealth('Needs Water', this)">Needs Water</button><button class="chip" onclick="filterPlantHealth('Low Light', this)">Low Light</button></div></div>
                 <div class="plants-grid" id="plants-container"></div>
             </div>
         </div>
 
         <div id="add-plant" class="app-view">
             <div class="panel" style="max-width:500px; margin:0 auto;">
-                <div class="panel-title">Register New Tree</div>
+                <div class="panel-title">Add Plant</div>
+                <div class="scanner"><div><div class="scanner-ring">📷</div><strong style="display:block;margin-top:12px">AI Camera Scanner</strong><p style="color:var(--text-light);font-size:13px;margin-top:5px">Take or upload a clear leaf photo for live plant research.</p><input id="plant-image-input" type="file" accept="image/*" capture="environment" hidden onchange="identifyPlant(event)"><button class="secondary-btn" style="margin-top:12px" onclick="document.getElementById('plant-image-input').click()">Take photo / Upload</button></div></div>
+                <div id="plant-research-result" class="ai-result" style="display:none;margin:16px 0"></div>
+                <div style="text-align:center;color:var(--text-light);font-size:12px;margin:15px 0">or add details manually</div>
                 <form onsubmit="handleAddPlant(event)">
                     <div class="form-group">
                         <label style="color:var(--text-dark)">Tree Name</label>
@@ -418,6 +486,7 @@
                         <label style="color:var(--text-dark)">Location</label>
                         <input type="text" id="p-loc" class="form-control" style="color:var(--text-dark); background:var(--bg-app)" placeholder="e.g. North Gate" required>
                     </div>
+                    <div class="form-group"><label style="color:var(--text-dark)">Room assignment</label><select id="p-room" class="form-control" style="color:var(--text-dark);background:var(--bg-app)"><option>Living Room</option><option>Balcony</option><option>Kitchen Garden</option><option>Community Nursery</option></select></div>
                     <div class="form-group">
                         <label style="color:var(--text-dark)">Height (ft)</label>
                         <input type="text" id="p-height" class="form-control" style="color:var(--text-dark); background:var(--bg-app)" placeholder="e.g. 2.5 ft" required>
@@ -429,19 +498,83 @@
 
         <div id="community" class="app-view">
             <div class="panel">
-                <div class="panel-title">Active Plantation Drives</div>
+                <div class="panel-title">Drives</div>
                 <p style="color:var(--text-light);margin-bottom:18px">Show up for the soil. Every drive includes a clear meeting point, care window, and a team ready to welcome you.</p>
                 <div id="drives-list"></div>
             </div>
         </div>
 
-        <div id="profile" class="app-view">
-            <div class="panel"><div class="profile-cover"><div class="profile-row"><img id="profile-large-avatar" class="profile-large-avatar" alt="Profile photo" style="display:none"><div><h2 id="profile-card-name"></h2><p id="profile-card-email"></p></div></div><input id="profile-image-input" type="file" accept="image/*" hidden onchange="changeProfilePicture(event)"><button class="profile-btn" style="margin-top:20px;background:#fff;color:var(--primary)" onclick="document.getElementById('profile-image-input').click()">Change profile picture</button></div><div class="section-grid" style="margin-top:24px;margin-bottom:0"><div><h3>About your account</h3><p id="profile-about" style="color:var(--text-light);line-height:1.7;margin-top:8px"></p></div><div><h3>Role</h3><p id="profile-card-role" style="color:var(--text-light);margin-top:8px"></p></div></div></div>
-        </div>
+        <div id="team" class="app-view"><div class="panel"><div class="panel-title">Green Team</div><p style="color:var(--text-light);margin-bottom:16px">Shared household and office care duties.</p><div class="task-item"><div><strong>Water balcony plants</strong><br><small style="color:var(--text-light)">Assigned to Maya · Today</small></div><button class="task-toggle" onclick="toggleTask(this)"></button></div><div class="task-item"><div><strong>Fertilize community herbs</strong><br><small style="color:var(--text-light)">Assigned to Aarav · Friday</small></div><button class="task-toggle" onclick="toggleTask(this)"></button></div><div class="panel-title" style="margin-top:22px">Leaderboard</div><div class="team-grid"><div class="team-member"><strong>🏆 Maya</strong><small>Green Thumb · 420 pts</small></div><div class="team-member"><strong>🌱 Aarav</strong><small>Soil Friend · 360 pts</small></div><div class="team-member"><strong>🌿 You</strong><small>12 day streak · 280 pts</small></div></div></div></div>
+
+        <div id="future-ai" class="app-view"><div class="panel"><div class="panel-title">Future AI</div><div class="scanner"><div><div class="scanner-ring">✦</div><strong style="display:block;margin-top:12px">Leaf Disease Diagnostics</strong><p style="color:var(--text-light);font-size:13px;margin-top:5px">Upload a photo to estimate health and suggest care.</p><button class="secondary-btn" style="margin-top:12px" onclick="runDiagnosis()">Run diagnosis</button></div></div><div id="diagnosis-result" class="ai-result" style="display:none;margin-top:16px"></div><div class="panel-title" style="margin-top:22px">Predictive watering schedule</div><div class="progress-label"><span>Next watering recommendation</span><strong>Tomorrow, 7:00 AM</strong></div><div class="progress-track"><div class="progress-fill" style="width:72%"></div></div><p style="color:var(--text-light);font-size:13px;margin-top:9px">Based on humidity, light, recent care, and your plant rooms.</p><div class="panel-title" style="margin-top:22px">AR sunlight meter</div><button class="join-btn" onclick="showToast('Sunlight meter calibrated for your current room.')">Calibrate camera</button></div></div>
+
+        <div id="profile" class="app-view"><div class="panel"><div class="profile-cover"><div class="profile-row"><img id="profile-large-avatar" class="profile-large-avatar" alt="Profile photo" style="display:none"><div><h2 id="profile-card-name"></h2><p id="profile-card-email"></p><p id="profile-card-role"></p></div></div><input id="profile-image-input" type="file" accept="image/*" hidden onchange="changeProfilePicture(event)"><button class="profile-btn" style="margin-top:20px;background:#fff;color:var(--primary)" onclick="document.getElementById('profile-image-input').click()">Edit profile</button></div><div class="metric-strip" style="margin-top:20px"><div class="mini-stat"><span>Plants saved</span><strong>5</strong></div><div class="mini-stat"><span>Carbon offset</span><strong>26 kg</strong></div><div class="mini-stat"><span>Streak</span><strong>12 days</strong></div></div><div class="section-grid" style="margin-bottom:0"><div><h3>About your account</h3><p id="profile-about" style="color:var(--text-light);line-height:1.7;margin-top:8px"></p></div><div><h3>Saved care guides</h3><div class="chip-row" style="margin-top:10px"><span class="chip">Neem care</span><span class="chip">Balcony light</span><span class="chip">Monsoon prep</span></div></div></div></div></div>
+
+        <div id="contacts" class="app-view"><div class="panel"><div class="panel-title">Contacts</div><div class="insight"><span class="insight-icon">🪴</span><div><strong>Botanist On-Demand</strong><span>Describe a plant problem and our expert team will respond.</span><button class="join-btn" style="margin-top:10px" onclick="toggleAssistant()">Start chat</button></div></div><div class="panel-title" style="margin-top:22px">Frequently asked questions</div><input class="search-control" style="width:100%;margin-bottom:10px" placeholder="Search FAQ"><div class="faq-item" onclick="this.classList.toggle('open')"><strong>How often should I water neem?</strong><p>Water when the top soil is dry. Neem prefers well-drained soil and bright light.</p></div><div class="faq-item" onclick="this.classList.toggle('open')"><strong>How do I report a plant issue?</strong><p>Use Future AI diagnostics or message Botanist On-Demand here.</p></div><button class="secondary-btn" style="margin-top:16px" onclick="openFeedbackModal()">Report feedback</button></div></div>
+
+        <div id="about" class="app-view"><div class="panel"><div class="panel-title">About EverFlora</div><div class="hero-banner" style="min-height:220px"><div class="hero-kicker">Our mission</div><h2>Make every green action visible.</h2><p>EverFlora connects daily plant care with community restoration across South India.</p></div><div class="metric-strip"><div class="mini-stat"><span>Version</span><strong>2.0.0</strong></div><div class="mini-stat"><span>System status</span><strong style="color:#2e8b57">Online</strong></div><div class="mini-stat"><span>Community</span><strong>1,248</strong></div></div><p style="color:var(--text-light);line-height:1.7">Follow the Green Team for planting stories, seasonal care guides, and new community drives.</p></div></div>
+
+        <div id="account" class="app-view"><div class="panel"><div class="panel-title">Account</div><div class="switch-row"><div><strong>Push notifications</strong><p style="color:var(--text-light);font-size:13px">Care reminders and drive updates</p></div><button class="switch on" onclick="this.classList.toggle('on')"></button></div><div class="switch-row"><div><strong>Cloud sync</strong><p style="color:var(--text-light);font-size:13px">Keep your grove backed up</p></div><button class="switch on" onclick="this.classList.toggle('on')"></button></div><div class="switch-row"><div><strong>Care schedule</strong><p style="color:var(--text-light);font-size:13px">Smart schedule based on local weather</p></div><button class="switch on" onclick="this.classList.toggle('on')"></button></div><div class="panel" style="margin-top:20px;background:var(--primary-light)"><strong>Free plan</strong><p style="color:var(--text-light);font-size:13px;margin-top:6px">Track up to 25 plants with community access.</p><button class="join-btn" style="margin-top:12px" onclick="showToast('Premium upgrades are coming soon.')">View Premium</button></div><button class="profile-btn" style="margin-top:4px" onclick="toggleTheme()">Toggle appearance</button></div></div>
+    </div>
+
+    <button class="fab" onclick="switchView('add-plant')" aria-label="Scan or add plant">＋</button>
+    <button class="assistant-launcher" onclick="toggleAssistant()" aria-label="Open EverFlora AI assistant">✦</button>
+    <section id="assistant-panel" class="assistant-panel" aria-label="EverFlora AI assistant">
+        <strong>EverFlora AI</strong><p style="color:var(--text-light);font-size:12px;margin-top:4px">Ask about the app, plants, care, or drives.</p>
+        <div id="assistant-messages" class="assistant-messages"><div class="assistant-message">Hi! I can explain any EverFlora feature in a few seconds.</div></div>
+        <form class="assistant-form" onsubmit="askAssistant(event)"><input id="assistant-input" placeholder="How do I add a plant?" autocomplete="off" required><button type="submit">Ask</button></form>
+    </section>
+    <div id="feedback-modal" class="modal-backdrop" onclick="if(event.target === this) closeFeedbackModal()">
+        <div class="modal-card"><div class="panel-title">Send feedback</div><p style="color:var(--text-light);font-size:13px">Tell the Green Team how we can improve EverFlora.</p><textarea id="feedback-text" class="form-control" style="height:110px;margin-top:14px;color:var(--text-dark);background:var(--bg-app)" placeholder="Your feedback"></textarea><div class="modal-actions"><button class="secondary-btn" onclick="closeFeedbackModal()">Cancel</button><button class="join-btn" onclick="submitFeedback()">Send feedback</button></div></div>
     </div>
 
     <script>
         let currentUser = null;
+
+        async function continueWithGoogle() {
+            const button = document.querySelector('.google-button');
+            button.disabled = true;
+            button.style.opacity = '0.7';
+            try {
+                const response = await fetch('/api/auth/google/status');
+                const status = await response.json();
+                if (status.configured) {
+                    window.location.href = '/api/auth/google';
+                    return;
+                }
+                showToast(`${status.error} Add GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET in Render.`);
+            } catch (error) {
+                showToast('Google sign-in is unavailable. Check that the EverFlora server is running.');
+            } finally {
+                button.disabled = false;
+                button.style.opacity = '1';
+            }
+        }
+
+        function finishGoogleSignIn() {
+            const params = new URLSearchParams(window.location.search);
+            const encodedUser = params.get('google_user');
+            const googleError = params.get('google_error');
+            if (googleError) showToast(googleError);
+            if (!encodedUser) return;
+            try {
+                currentUser = JSON.parse(encodedUser);
+                document.getElementById('auth-overlay').style.display = 'none';
+                document.getElementById('profile-name').innerText = currentUser.name;
+                document.getElementById('profile-avatar').innerText = currentUser.name[0].toUpperCase();
+                document.getElementById('view-title').innerText = `Welcome Back, ${currentUser.name}!`;
+                document.getElementById('logout-button').style.display = 'inline-flex';
+                document.getElementById('profile-nav').style.display = 'flex';
+                document.getElementById('profile-card-name').innerText = currentUser.name;
+                document.getElementById('profile-card-email').innerText = currentUser.email;
+                document.getElementById('profile-card-role').innerText = currentUser.role;
+                document.getElementById('profile-about').innerText = `${currentUser.name} is growing a personal record of plants, care tasks, and community milestones.`;
+                loadDashboardData();
+                window.history.replaceState({}, document.title, window.location.pathname);
+            } catch (error) {
+                showToast('Google sign-in returned an invalid account response.');
+            }
+        }
 
         function toggleAuthMode(mode) {
             document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
@@ -564,7 +697,7 @@
             plants: [
                 {
                     id: 1,
-                    name: 'Neem Grove',
+                    name: 'Neem (Vembu)',
                     date: '2026-08-01',
                     location: 'Green Wall Block',
                     height: '4.8 ft',
@@ -572,7 +705,7 @@
                 },
                 {
                     id: 2,
-                    name: 'Silver Oak',
+                    name: 'Coconut Palm',
                     date: '2026-07-18',
                     location: 'Botanical Zone',
                     height: '6.1 ft',
@@ -580,7 +713,7 @@
                 },
                 {
                     id: 3,
-                    name: 'Evergreen Palm',
+                    name: 'Drumstick (Murungai)',
                     date: '2026-06-22',
                     location: 'Community Nursery',
                     height: '2.9 ft',
@@ -588,7 +721,7 @@
                 },
                 {
                     id: 4,
-                    name: 'Banyan Heritage',
+                    name: 'Banyan (Aalamaram)',
                     date: '2026-05-16',
                     location: 'Heritage Plaza',
                     height: '9.2 ft',
@@ -596,7 +729,7 @@
                 },
                 {
                     id: 5,
-                    name: 'Green Campus Fig',
+                    name: 'Curry Leaf (Karivepaku)',
                     date: '2026-07-05',
                     location: 'Learning Garden',
                     height: '3.4 ft',
@@ -624,10 +757,53 @@
             try {
                 const res = await fetch(`/api/dashboard/${currentUser.id}`);
                 const data = await res.json();
-                renderDashboardData({ ...defaultDashboardData, ...data, tasks: data.tasks || defaultDashboardData.tasks, drives: data.drives || defaultDashboardData.drives, leaderboard: data.leaderboard || defaultDashboardData.leaderboard });
+                renderDashboardData({ ...defaultDashboardData, ...data, plants: [...defaultDashboardData.plants, ...(data.plants || [])], tasks: data.tasks || defaultDashboardData.tasks, drives: data.drives || defaultDashboardData.drives, leaderboard: data.leaderboard || defaultDashboardData.leaderboard });
             } catch (err) {
                 renderDashboardData(defaultDashboardData);
             }
+        }
+
+        function toggleAssistant() {
+            const panel = document.getElementById('assistant-panel');
+            panel.classList.toggle('open');
+            if (panel.classList.contains('open')) document.getElementById('assistant-input').focus();
+        }
+
+        function getLocalAssistantAnswer(question) {
+            const normalized = question.toLowerCase().trim();
+            if (/^(hi|hello|hey|namaste|good morning|good evening)\b/.test(normalized)) return 'Hello! I can help you use EverFlora, choose plants, plan care, join drives, and understand your plant impact. What would you like to know?';
+            if (/add|register|plant.*(new|create)|how.*plant/.test(normalized)) return 'Open Add Plant from the menu, enter the plant name, date, location, and height, then tap Save Plant. The new plant will appear in My Plants.';
+            if (/water|care|task|healthy|fertili|soil|sun/.test(normalized)) return 'Open Home and check Pending Tasks for the next care action. Water plants when the top soil feels dry, keep the right sunlight for the species, and tap Done after each task.';
+            if (/drive|event|join|community/.test(normalized)) return 'Open Drives to see upcoming plantation activities. Tap Join drive to add yourself to a community mission.';
+            if (/impact|carbon|co2|tree|score/.test(normalized)) return 'Your impact score grows when you add plants and complete care tasks. EverFlora estimates the carbon benefit of your grove.';
+            if (/profile|account|photo|contact/.test(normalized)) return 'Open My Profile for your account details and profile picture. Account and Contacts are also available in the menu.';
+            if (/south|india|neem|coconut|drumstick|murungai|curry|banyan|jackfruit|mango/.test(normalized)) return 'Great South Indian choices include neem, coconut, drumstick (murungai), curry leaf, banyan, jackfruit, and mango. EverFlora includes starter plants for these growing conditions.';
+            if (/what can you|help|use|feature/.test(normalized)) return 'I can explain Home, My Plants, Add Plant, Drives, Account, Green Team, My Profile, Contacts, plant care, and the impact score. Ask me about any one of them.';
+            return 'I can help with EverFlora features, South Indian plants, watering and care, drives, profiles, and impact scores. Try asking "How do I add a plant?"';
+        }
+
+        async function askAssistant(event) {
+            event.preventDefault();
+            const input = document.getElementById('assistant-input');
+            const question = input.value.trim();
+            if (!question) return;
+            const messages = document.getElementById('assistant-messages');
+            messages.insertAdjacentHTML('beforeend', `<div class="assistant-message user"></div>`);
+            messages.lastElementChild.textContent = question;
+            input.value = '';
+            messages.insertAdjacentHTML('beforeend', '<div class="assistant-message">Thinking...</div>');
+            messages.scrollTop = messages.scrollHeight;
+            try {
+                const request = fetch('/api/assistant', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question }) });
+                const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('assistant timeout')), 1200));
+                const response = await Promise.race([request, timeout]);
+                if (!response.ok) throw new Error('assistant request failed');
+                const data = await response.json();
+                messages.lastElementChild.textContent = data.answer || getLocalAssistantAnswer(question);
+            } catch (error) {
+                messages.lastElementChild.textContent = getLocalAssistantAnswer(question);
+            }
+            messages.scrollTop = messages.scrollHeight;
         }
 
         function renderDashboardData(data) {
@@ -638,23 +814,23 @@
             document.getElementById('metric-co2').innerText = `${(data.plants.length * 5.2).toFixed(1)} kg`;
             const completed = Number(localStorage.getItem('everfloraCompletedTasks') || 0);
             const impact = data.plants.length * 10 + completed * 5;
-            document.getElementById('impact-score').innerText = `${impact} impact points`;
-            document.getElementById('impact-progress').style.width = `${Math.min(100, impact)}%`;
-            document.getElementById('impact-copy').innerText = impact >= 80 ? 'Canopy champion' : `${80 - impact} points to your next milestone`;
-            document.getElementById('air-insight').innerText = data.plants.length ? `${(data.plants.length * 5.2).toFixed(1)} kg estimated CO2 offset from your grove.` : 'Add plants to estimate your CO2 offset.';
-            document.getElementById('habit-insight').innerText = completed ? `${completed} care task${completed === 1 ? '' : 's'} completed. Your routine is taking root.` : 'Complete tasks to build your care streak.';
 
             // Plants
-            document.getElementById('plants-container').innerHTML = data.plants.map(p => {
+            document.getElementById('plants-container').innerHTML = data.plants.map((p, index) => {
                 const plantImage = p.image || getPlantImageForName(p.name || p.plant || 'tree');
-                return `<div class="plant-card">
+                const health = p.status || ['Thriving', 'Needs Water', 'Low Light'][index % 3];
+                const healthClass = health === 'Thriving' ? '' : health === 'Needs Water' ? 'warn' : 'low';
+                const room = p.room || ['Living Room', 'Balcony', 'Community Nursery'][index % 3];
+                return `<div class="plant-card" data-health="${health}" data-plant-name="${String(p.name || '').toLowerCase()}">
                     <img src="${plantImage}" alt="${p.name || 'Tree'}">
-                    <h3>🌳 ${p.name}</h3>
+                    <div><h3>🌳 ${p.name}</h3>
                     <p style="font-size:13px; color:var(--text-light); margin-top:5px;">📍 ${p.location}</p>
                     <p style="font-size:13px; margin-top:5px;">Date: ${p.date} | Height: ${p.height}</p>
-                    <span class="soil-badge">Soil care: ${p.status || 'Healthy'}</span>
+                    <p style="font-size:12px;color:var(--text-light);margin-top:5px">Room: ${room}</p></div>
+                    <span class="health-badge ${healthClass}">${health}</span>
                 </div>`;
             }).join('');
+            filterPlants();
 
             // Tasks
             document.getElementById('dashboard-tasks').innerHTML = data.tasks.map(t => `
@@ -700,6 +876,81 @@
             loadDashboardData();
         }
 
+        let selectedPlantHealth = 'all';
+
+        function setPlantLayout(layout, button) {
+            const container = document.getElementById('plants-container');
+            container.classList.toggle('plant-list', layout === 'list');
+            document.querySelectorAll('.view-switcher button').forEach(item => item.classList.remove('active'));
+            button.classList.add('active');
+        }
+
+        function filterPlantHealth(health, button) {
+            selectedPlantHealth = health.toLowerCase();
+            document.querySelectorAll('.chip-row .chip').forEach(item => item.classList.remove('active'));
+            button.classList.add('active');
+            filterPlants();
+        }
+
+        function filterPlants() {
+            const query = String(document.getElementById('plant-search')?.value || '').toLowerCase();
+            document.querySelectorAll('#plants-container .plant-card').forEach(card => {
+                const matchesName = card.dataset.plantName.includes(query);
+                const matchesHealth = selectedPlantHealth === 'all' || card.dataset.health.toLowerCase() === selectedPlantHealth;
+                card.style.display = matchesName && matchesHealth ? '' : 'none';
+            });
+        }
+
+        function identifyPlant(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const result = document.getElementById('plant-research-result');
+            result.style.display = 'block';
+            result.textContent = 'Researching this plant online...';
+            const reader = new FileReader();
+            reader.onload = async () => {
+                try {
+                    const response = await fetch('/api/identify-plant', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ image: reader.result }) });
+                    const data = await response.json();
+                    if (!response.ok) throw new Error(data.error || 'Plant research failed');
+                    result.innerHTML = `<strong>${data.commonName}</strong><p style="margin-top:5px;font-size:13px"><em>${data.scientificName}</em> · ${data.confidence}% match</p><p style="margin-top:8px;color:var(--text-light);font-size:13px;line-height:1.5">${data.research}</p><a href="${data.researchUrl}" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;color:var(--primary);font-size:13px">Read full research ↗</a>`;
+                    document.getElementById('p-name').value = data.commonName;
+                    document.getElementById('p-loc').value = 'Camera scan';
+                    document.getElementById('p-room').value = 'Balcony';
+                } catch (error) {
+                    result.textContent = error.message;
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function toggleTask(button) {
+            button.classList.toggle('done');
+            showToast(button.classList.contains('done') ? 'Duty marked complete.' : 'Duty reopened.');
+        }
+
+        function runDiagnosis() {
+            const result = document.getElementById('diagnosis-result');
+            result.style.display = 'block';
+            result.innerHTML = '<strong>Likely diagnosis: mild water stress</strong><p style="margin-top:6px;color:var(--text-light);font-size:13px">Cure score: 88%. Move the plant into bright indirect light and water when the top soil dries.</p>';
+        }
+
+        function openFeedbackModal() {
+            document.getElementById('feedback-modal').classList.add('open');
+            document.getElementById('feedback-text').focus();
+        }
+
+        function closeFeedbackModal() {
+            document.getElementById('feedback-modal').classList.remove('open');
+        }
+
+        function submitFeedback() {
+            if (!document.getElementById('feedback-text').value.trim()) return showToast('Write a short note before sending.');
+            closeFeedbackModal();
+            document.getElementById('feedback-text').value = '';
+            showToast('Thanks. Your feedback reached the Green Team.');
+        }
+
         async function completeTask(id) {
             const completed = Number(localStorage.getItem('everfloraCompletedTasks') || 0) + 1;
             localStorage.setItem('everfloraCompletedTasks', String(completed));
@@ -731,7 +982,7 @@
             document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
             document.getElementById(viewId).classList.add('active-view');
             if(el) el.classList.add('active');
-            const titles = { dashboard: 'Welcome Back, ', 'my-plants': 'Your living collection', 'add-plant': 'Add to the canopy', community: 'Make the next move', profile: 'Your green profile' };
+            const titles = { dashboard: 'Welcome Back, ', 'my-plants': 'Your living collection', 'add-plant': 'Add to the canopy', community: 'Make the next move', account: 'Your account', about: 'About EverFlora', team: 'Green Team', contacts: 'Contacts', 'future-ai': 'Future AI diagnostics', profile: 'Your green profile' };
             if (viewId !== 'dashboard') document.getElementById('view-title').innerText = titles[viewId] || 'EverFlora';
             if (viewId === 'dashboard' && currentUser) document.getElementById('view-title').innerText = `Welcome Back, ${currentUser.name}!`;
             const sidebar = document.querySelector('.sidebar');
@@ -773,6 +1024,7 @@
 
         renderDashboardData(defaultDashboardData);
         setupPasswordVisibility();
+        finishGoogleSignIn();
     </script>
 </body>
 </html>
